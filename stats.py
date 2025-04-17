@@ -13,8 +13,15 @@ def get_letter_frequency(book):
     return letter_dict
 
 def sort_characters(character_dict):
-    sorted_dict = dict(sorted(character_dict.items(),reverse=True, key =lambda item:item[1]))
-    return (sorted_dict)
+    character_list = []
+    for character in character_dict:
+        little_dict = {
+            'char': character,
+            'num': character_dict[character],
+        }
+        character_list.append(little_dict)
+    character_list.sort(reverse = True, key = sort_on)
+    return (character_list)
 
 def sort_on(dict):
     return dict['num']
